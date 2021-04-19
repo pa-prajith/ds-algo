@@ -1,5 +1,5 @@
 /*
-    Problem: Recurssive method to return sum range
+    Problem: Recursive method to return sum range
 */
 
 function sumRange(num) {

@@ -22,9 +22,9 @@ function binarySearch(arr, num) {
     } else if (middle === right) {
       return -1;
     } else if (arr[middle] > num) {
-      right = middle;
+      right = middle - 1;
     } else if (arr[middle] < num) {
-      left = middle;
+      left = middle + 1;
     } else {
       return -1;
     }

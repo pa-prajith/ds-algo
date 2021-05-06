@@ -145,6 +145,25 @@ class SinglyLinklist {
     return true;
   }
 
+  reverse() {
+    if (!this.head) {
+      return undefined;
+    }
+    let node = this.head;
+    this.head = this.tail;
+    this.tail = this.head;
+    let next;
+    let prev = null;
+
+    while (node) {
+      next = node.nextNode;
+      node.nextNode = prev;
+      prev = node;
+      node = next;
+    }
+    return this;
+  }
+
   display() {
     let current = this.head;
     const arr = [];
@@ -157,24 +176,28 @@ class SinglyLinklist {
 }
 
 const list = new SinglyLinklist();
-list.push("hello");
-list.push("how");
-list.push("you");
-list.push("doing");
+list.push("100");
+list.push("200");
+list.push("300");
+list.push("400");
 
 list.display();
 list.pop();
 list.display();
-list.push("new One");
+list.push("500");
 list.shift();
-list.unshift("Hi... ");
+list.unshift("99");
 list.display();
 console.log(list.get(2));
 console.log(list.get(1));
 console.log(list.get(20));
-list.set(2, "Yooo!");
-list.insert(3, "New Insertion");
-list.insert(1, "heyyy");
+list.set(2, "201");
+list.insert(3, "302");
+list.insert(1, "103");
 list.display();
 list.remove(2);
+list.display();
+list.remove(1);
+list.display();
+list.reverse();
 list.display();

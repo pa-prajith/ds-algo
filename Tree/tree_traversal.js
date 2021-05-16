@@ -91,13 +91,53 @@ class BinaryTree {
     traverse(this.root);
     return data;
   }
+
+  dfsPostOrder() {
+    const data = [];
+    const traverse = (nodeEle) => {
+      if (nodeEle === null) {
+        return undefined;
+      }
+      if (nodeEle.left) {
+        traverse(nodeEle.left);
+      }
+      if (nodeEle.right) {
+        traverse(nodeEle.right);
+      }
+      data.push(nodeEle.value);
+    };
+    traverse(this.root);
+    return data;
+  }
+
+  dfsInOrder() {
+    const data = [];
+    const traverse = (nodeEle) => {
+      if (nodeEle === null) {
+        return undefined;
+      }
+      if (nodeEle.left) {
+        traverse(nodeEle.left);
+      }
+      data.push(nodeEle.value);
+      if (nodeEle.right) {
+        traverse(nodeEle.right);
+      }
+    };
+    traverse(this.root);
+    return data;
+  }
 }
 
 const bst = new BinaryTree();
 bst.Insert(10);
-bst.Insert(12);
+bst.Insert(6);
 bst.Insert(8);
 bst.Insert(15);
+bst.Insert(3);
+bst.Insert(20);
 
 console.log(bst.bfs());
 console.log(bst.dfsPreOrder());
+console.log(bst.dfsPostOrder());
+console.log(bst.dfsInOrder());

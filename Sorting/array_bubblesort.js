@@ -34,5 +34,20 @@ function bubbleSortMethod2(arr) {
   console.log("output - ", arr);
 }
 
-bubbleSortMethod1([3, 1, 4, 2, 7, 4, 8, 9, 5]);
-bubbleSortMethod2([3, 1, 4, 2, 7, 4, 8, 9, 5]);
+const bubble = (arr) => {
+  console.table(arr);
+  for (let i = 1; i < arr.length; i++) {
+    for (let k = 0; k < arr.length - i; k++) {
+      if (arr[k] > arr[k + 1]) {
+        [arr[k], arr[k + 1]] = [arr[k + 1], arr[k]];
+      }
+    }
+  }
+  console.log("Sorted");
+  console.table(arr);
+};
+
+// bubbleSortMethod1([3, 1, 4, 2, 7, 4, 8, 9, 5]);
+// bubbleSortMethod2([3, 1, 4, 2, 7, 4, 8, 9, 5]);
+
+bubble([3, 1, 4, 2, 7, 4, 8, 9, 5]);

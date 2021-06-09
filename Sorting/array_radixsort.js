@@ -21,7 +21,7 @@ const radixSort = (arr) => {
   const maxLen = getLargestDigitCount(arr);
   let bucket;
   for (let outer = 0; outer < maxLen; outer++) {
-    bucket = [];
+    bucket = Array.from({ length: 10 }, () => {});
     for (let r = 0; r < 10; r++) {
       bucket[r] = [];
     }
@@ -30,12 +30,7 @@ const radixSort = (arr) => {
       bucket[digit].push(arr[inner]);
     }
 
-    arr = [];
-    for (let a of bucket) {
-      if (a.length > 0) {
-        arr = [...arr, ...a];
-      }
-    }
+    arr = [].concat(...bucket);
   }
   return arr;
 };
